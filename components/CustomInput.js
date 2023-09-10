@@ -17,7 +17,7 @@ const CustomInput = ({ label, id, value, onChange, placeholder, type, step, vali
                 setIsInvalid(''); //reset error message if no errors found
             }
         }
-    }, [validators, value]); //will be ran only when "validators" or "value" changes.
+    }, [validators, value]); //will be ran only when "validators" or "value" changes. (ie: the user types)
 
     return (
         <div className='inputFieldWrapper'>

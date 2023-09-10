@@ -30,9 +30,10 @@
     box-shadow: 0 0 1px #d28100;
   }
 
-  /* Styling for the input field when focused */
+  /* Styling for the input field error message */
   .inputErrorWrapper {
     color:crimson;
     padding-top: 10px;
     font-size: 15px;
+    height: 25px;
   }

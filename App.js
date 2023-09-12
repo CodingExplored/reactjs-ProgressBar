@@ -1,22 +1,28 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
-import CustomInput from './components/CustomInput';
-import { useState } from 'react';
-import { isLong } from './components/functions/validators';
+import ProgressBar from './components/ProgressBar';
 
 function App() {
-  const [value, setValue] = useState('');
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProgress(oldProgress => (oldProgress >= 100 ? 0 : oldProgress + 1));
+      console.log(progress)
+    }, 500);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
     <div className="App">
       <header className="App-header">
-        <CustomInput
-            label="Username"
-            id="CustomOne"
-            value={value}
-            onChange={setValue}
-            validators={[isLong]}/>
       </header>
+      <div>
+        <ProgressBar progress={progress} />
+      </div>
     </div>
   );
 }
